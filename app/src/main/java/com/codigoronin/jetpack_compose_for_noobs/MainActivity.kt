@@ -19,7 +19,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HelloWord(name = "Michel")
+                  //  HelloWord(name = "Michel")
+                  MyRow()
                 }
             }
         }
