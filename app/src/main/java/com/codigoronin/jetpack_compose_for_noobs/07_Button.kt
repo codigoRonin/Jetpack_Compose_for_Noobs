@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,15 +45,16 @@ fun MyButtonExample1() {
 
 @Composable
 fun MyButtonExample2() {
-    var enabled by rememberSaveable { mutableStateOf(true) }
+    var activated by rememberSaveable { mutableStateOf(true) }
+
     Column(
         Modifier
             .fillMaxSize()
             .padding(32.dp)
     ) {
         Button(
-            onClick = { enabled = false },
-            enabled = enabled,
+            onClick = { activated = false },
+            enabled = activated,
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
                 contentColor = Color.Cyan,
@@ -62,6 +65,47 @@ fun MyButtonExample2() {
             border = BorderStroke(5.dp, Color.Green)
         ) {
             Text(text = "Mi Botón", fontSize = 24.sp)
+        }
+    }
+}
+
+@Composable
+fun MyOutlinedButton() {
+
+    Column(
+        Modifier
+            .fillMaxSize()
+            .padding(32.dp)
+    ) {
+
+        OutlinedButton(
+            onClick = { /*TODO*/ },
+            enabled = true,
+            //      colors = ButtonDefaults.outlinedButtonColors(
+            //          contentColor = Color.White,
+            //          containerColor = Color.Gray
+            //     )
+        )
+        {
+            Text(text = "My Outlined")
+        }
+    }
+}
+
+@Composable
+fun MyTextButton() {
+
+    // Realmente es el mismo botón porque dentro podriamos colocar cualquier cosa no solo un
+    // Text, pero eso si, no tendría borde. Además también podríamos hacer que el Text tuviera el
+    // Modifier.clickable y obtendriamos lo mismo.
+
+    Column(
+        Modifier
+            .fillMaxSize()
+            .padding(32.dp)
+    ) {
+        TextButton(onClick = { /*TODO*/ }) {
+            Text("Pulsame")
         }
     }
 }
