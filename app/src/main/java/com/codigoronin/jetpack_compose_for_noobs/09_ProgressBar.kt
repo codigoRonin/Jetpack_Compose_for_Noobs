@@ -1,0 +1,62 @@
+package com.codigoronin.jetpack_compose_for_noobs
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+
+@Composable
+fun MyProgressBar() {
+    Column(
+        Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        CircularProgressIndicator(
+            color = Color.Red,
+            strokeWidth = 8.dp
+        )
+        LinearProgressIndicator(
+            modifier = Modifier.padding(top = 24.dp),
+            color = Color.Blue,
+            trackColor = Color.Green
+        )
+    }
+}
+@Composable
+fun MyProgressBarExample() {
+    var showLoadind by rememberSaveable() {
+        mutableStateOf(false)
+    }
+    Column(
+        Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        if (showLoadind) {
+            LinearProgressIndicator(
+                Modifier.padding(top = 24.dp, bottom = 24.dp),
+                color = Color.Red,
+                trackColor = Color.Gray
+            )
+        }
+        Button(onClick = { showLoadind = !showLoadind }) {
+            Text(text = "Download File")
+        }
+
+    }
+}
