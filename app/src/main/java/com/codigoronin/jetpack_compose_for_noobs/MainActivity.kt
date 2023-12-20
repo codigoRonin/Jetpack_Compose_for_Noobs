@@ -19,8 +19,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                  //  HelloWord(name = "Michel")
-                    MyProgressBarExample()
+                    //  HelloWord(name = "Michel")
+                    MyExposedDropdownMenuBox()
+
                 }
             }
         }
