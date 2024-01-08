@@ -1,6 +1,7 @@
 package com.codigoronin.jetpack_compose_for_noobs
 
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,6 +20,8 @@ import androidx.compose.material.icons.filled.HeartBroken
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -27,6 +30,7 @@ import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -133,7 +137,7 @@ fun MyDropDownMenu() {
             expanded = expanded,
             onDismissRequest = { expanded = false },
 
-        ) {
+            ) {
             languages.forEach { language ->
                 DropdownMenuItem(
                     text = { Text(text = language) },
@@ -168,7 +172,7 @@ fun MyExposedDropdownMenuBox() {
         ) {
             OutlinedTextField(
                 value = selectedText,
-                onValueChange = {/* No permitimos cambios desde el TextField */},
+                onValueChange = {/* No permitimos cambios desde el TextField */ },
                 readOnly = true,
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                 modifier = Modifier.menuAnchor()
@@ -189,5 +193,28 @@ fun MyExposedDropdownMenuBox() {
                 }
             }
         }
+    }
+}
+
+@Composable
+fun MyCard() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        elevation = CardDefaults.cardElevation(10.dp),
+        shape = MaterialTheme.shapes.large,
+        border = BorderStroke(10.dp, Color.Yellow),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Green,
+            contentColor = Color.Red
+        )
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = "Ejemplo 1")
+            Text(text = "Ejemplo 1")
+            Text(text = "Ejemplo 1")
+        }
+
     }
 }
