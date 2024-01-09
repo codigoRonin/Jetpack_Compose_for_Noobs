@@ -47,7 +47,7 @@ fun MyAdvanceSlider() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyRangeSlider() {
-    var currentRange by remember { mutableStateOf(0f..10f) }
+    var currentRange by remember { mutableStateOf(1f..9f) }
     Column(Modifier.padding(24.dp)) {
         RangeSlider(
             value = currentRange,
