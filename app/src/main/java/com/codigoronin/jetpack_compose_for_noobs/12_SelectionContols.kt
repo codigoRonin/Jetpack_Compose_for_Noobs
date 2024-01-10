@@ -36,7 +36,7 @@ fun MySelectionControls(){
         onCheckedChange = { myNewStatus -> status = myNewStatus }
     )
 
-    val myOptions = getOptions(listOf("Opcion 1", "Opcion 2", "Opcion 3"))
+    val myOptions = getOptions(listOf("Opcion 1", "Opcion 2", "Opcion 3", "Nueva Opción"))
 
     var selected by rememberSaveable { mutableStateOf("Hombre") }
 
@@ -51,7 +51,6 @@ fun MySelectionControls(){
         MyRadioButtonList()
         MyRadioButtonListStateHoisting(selected) { selected = it }
     }
-
 }
 
 @Composable
@@ -157,7 +156,10 @@ fun MyTriStateCheckBox() {
 fun MyRadioButtonExample() {
     Row() {
         RadioButton(
-            selected = false, onClick = {}, enabled = true, colors = RadioButtonDefaults.colors(
+            selected = false,
+            onClick = {},
+            enabled = true,
+            colors = RadioButtonDefaults.colors(
                 selectedColor = Color.Red,
                 unselectedColor = Color.Green,
                 disabledSelectedColor = Color.Blue,
