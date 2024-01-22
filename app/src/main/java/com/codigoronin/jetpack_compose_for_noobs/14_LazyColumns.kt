@@ -52,8 +52,8 @@ fun MyLazyColumns(){
    //  SuperHeroHorizontalView()
     // SuperHeroVerticallView()
     //  SuperHeroGridView()
-     SuperHeroSpecialControlView()
-    // SuperHeroVerticalStickylView()
+    // SuperHeroSpecialControlView()
+     SuperHeroVerticalStickylView()
 }
 @Composable
 fun MyLazyColumnsExample1() {
