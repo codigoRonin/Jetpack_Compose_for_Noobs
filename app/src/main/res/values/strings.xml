@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Jetpack_Compose_for_Noobs</string>
+    <string name="title_activity_screen">ScreenActivity</string>
 </resources>
