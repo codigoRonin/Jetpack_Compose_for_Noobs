@@ -21,8 +21,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //  HelloWord(name = "Michel")
-                    ScaffoldExample()
-
+                    MyDrawer()
                 }
             }
         }
