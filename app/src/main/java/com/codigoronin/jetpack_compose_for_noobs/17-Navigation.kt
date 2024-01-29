@@ -13,6 +13,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.codigoronin.jetpack_compose_for_noobs.models.Routes
 
 // En Jetpackcompose es singleActivity , tendremos un mainActivity que gestione todas las screens,
 // ya no tendremos mas acivities ni fragments en nuestos proyectos.
@@ -32,7 +33,8 @@ fun Screen1(navController: NavHostController) {
             text = "Pantalla 1",
             modifier = Modifier
                 .align(Alignment.Center)
-                .clickable { navController.navigate("Pantalla 2") }) // Basic
+               // .clickable { navController.navigate("Pantalla 2") }) // Basic
+                .clickable { navController.navigate(Routes.Pantalla2.routes) }) // Pro
     }
 }
 
@@ -48,8 +50,8 @@ fun Screen2(navController: NavHostController) {
             text = "Pantalla 2",
             modifier = Modifier
                 .align(Alignment.Center)
-       .clickable { navController.navigate("Pantalla 3") }) // Basic
-
+      // .clickable { navController.navigate("Pantalla 3") }) // Basic
+                .clickable { navController.navigate(Routes.Pantalla3.routes) }) // Pro
     }
 }
 
@@ -65,6 +67,42 @@ fun Screen3(navController: NavHostController) {
             text = "Pantalla 3",
             modifier = Modifier
                 .align(Alignment.Center)
-                .clickable { navController.navigate("Pantalla 1") }) // Basic
+             //   .clickable { navController.navigate("Pantalla 1") }) // Basic
+             //   .clickable { navController.navigate(Routes.Pantalla1.routes) }) // Pro
+            .clickable { navController.navigate("Pantalla4/Michel")})  // With argument
     }
 }
+
+@Composable
+fun Screen4(navController: NavHostController, name: String) {
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Red)
+    ) {
+        Text(
+            text = name,
+            modifier = Modifier
+                .align(Alignment.Center)
+                .clickable { navController.navigate("Pantalla5/1975") },   // With argument (no String)
+        )
+    }
+}
+@Composable
+fun Screen5(navController: NavHostController, age: Int) {
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Gray)
+    ) {
+        Text(
+            text = age.toString(),
+            modifier = Modifier
+                .align(Alignment.Center)
+        //        .clickable { navController.navigate(Pantalla6.createRoute("Juanito")) },   // With argument like a pro
+        )
+    }
+}
+
