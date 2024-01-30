@@ -64,6 +64,25 @@ class ScreenActivity : ComponentActivity() {
                                 backStackEntry.arguments?.getInt("age") ?: 0
                             )
                         }
+                        // Pasar argumentos obligatorios like a pro
+                        composable(Routes.Pantalla6.routes) { backStackEntry -> //backStackEntry es el nombre que se suele dar pero lo llamo como me da la gana
+                            Screen6(
+                                navigationController,
+                                backStackEntry.arguments?.getString("name").orEmpty()
+                            )
+                        }
+                        composable(
+                            Routes.Pantalla7.routes,
+                            arguments = listOf(navArgument("name") {
+                                defaultValue = "valor por defecto"
+                            })
+                        ) { backStackEntry -> //backStackEntry es el nombre que se suele dar pero lo llamo como me da la gana
+                            Screen7(
+                                navigationController,
+                                backStackEntry.arguments?.getString("name")
+                            )
+                        }
+
                     }
             }
         }

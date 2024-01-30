@@ -101,8 +101,42 @@ fun Screen5(navController: NavHostController, age: Int) {
             text = age.toString(),
             modifier = Modifier
                 .align(Alignment.Center)
-        //        .clickable { navController.navigate(Pantalla6.createRoute("Juanito")) },   // With argument like a pro
+                .clickable { navController.navigate(Routes.Pantalla6.createRoute("Juanito")) },   // With argument like a pro
         )
     }
 }
 
+@Composable
+fun Screen6(navController: NavHostController, name: String) {
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.LightGray)
+    ) {
+        Text(
+            text = name,
+            modifier = Modifier
+                .align(Alignment.Center)
+               //   .clickable { navController.navigate(Routes.Pantalla7.routes) },   // With optional argument like a pro
+                .clickable { navController.navigate(Routes.Pantalla7.createRoute("DAM")) },   // With optional argument like a pro
+        )
+    }
+}
+
+@Composable
+fun Screen7(navController: NavHostController, name: String?) {
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Cyan)
+    ) {
+        Text(
+            text = "Me llamo $name",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .clickable { navController.navigate(Routes.Pantalla1.routes) },   // With argument like a pro
+        )
+    }
+}
